@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوسيط DZ | برينيس عبد المؤمن</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'kufi': ['Noto Kufi Arabic', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        dark: { 900: '#0B1120', 800: '#080C17', 700: '#0F172A', 600: '#131B2E' },
+                        gold: { 300: '#F5D78E', 400: '#F0C75E', 500: '#D4A843', 600: '#B8922E', 700: '#9A7A24' },
+                        glass: { light: 'rgba(255,255,255,0.05)', medium: 'rgba(255,255,255,0.08)', heavy: 'rgba(255,255,255,0.12)' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #080C17; }
+        ::-webkit-scrollbar-thumb { background: #D4A843; border-radius: 3px; }
+        html { scroll-behavior: smooth; }
+
+        .glass-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+        .glass-nav {
+            background: rgba(11,17,32,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #F5D78E, #D4A843, #B8922E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gold-bg { background: linear-gradient(135deg, #F5D78E, #D4A843, #B8922E); }
+        .gold-border { border-image: linear-gradient(135deg, #F5D78E, #D4A843) 1; }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #F5D78E, #D4A843, #B8922E, #D4A843, #F5D78E);
+            animation: rotateBorder 6s linear infinite;
+            z-index: -1;
+        }
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: #0B1120;
+            z-index: -1;
+        }
+        @keyframes rotateBorder {
+            to { transform: rotate(360deg); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,168,67,0.3);
+            box-shadow: 0 20px 60px rgba(212,168,67,0.08);
+        }
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, #F5D78E, #D4A843);
+            box-shadow: 0 8px 30px rgba(212,168,67,0.3);
+        }
+        .service-card:hover .service-icon .iconify {
+            color: #0B1120 !important;
+        }
+
+        .country-chip {
+            transition: all 0.3s ease;
+        }
+        .country-chip:hover {
+            background: rgba(212,168,67,0.15);
+            border-color: rgba(212,168,67,0.4);
+            transform: translateY(-2px);
+        }
+
+        .floating-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(212,168,67,0.3);
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+        }
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .cinematic-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212,168,67,0.3), transparent);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #F5D78E, #D4A843);
+            color: #0B1120;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #D4A843, #B8922E);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .btn-gold:hover::before { opacity: 1; }
+        .btn-gold span { position: relative; z-index: 1; }
+
+        .btn-outline-gold {
+            border: 1px solid rgba(212,168,67,0.4);
+            color: #D4A843;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-gold:hover {
+            background: rgba(212,168,67,0.1);
+            border-color: #D4A843;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .lang-btn {
+            transition: all 0.2s ease;
+        }
+        .lang-btn.active {
+            background: rgba(212,168,67,0.15);
+            color: #D4A843;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+        }
+        @keyframes whatsappPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 4px 30px rgba(37,211,102,0.6), 0 0 0 10px rgba(37,211,102,0.1); }
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        [dir="rtl"] .mobile-menu {
+            transform: translateX(-100%);
+        }
+        [dir="rtl"] .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .marquee-track {
+            display: flex;
+            animation: marquee 30s linear infinite;
+            width: max-content;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        [dir="rtl"] @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+        .image-mask {
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 40px rgba(212,168,67,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
+
+        .toast {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .hero-portrait {
+            position: relative;
+        }
+        .hero-portrait .portrait-frame {
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(212,168,67,0.2);
+            border-radius: 24px;
+            transform: translate(12px, 12px);
+            z-index: 0;
+        }
+        .hero-portrait img {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-dark-800 text-gray-200 font-kufi overflow-x-hidden">
+
+    <!-- Floating Particles -->
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 h-16 lg:h-20">
+        <div class="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl gold-bg flex items-center justify-center shadow-lg">
+                    <span class="iconify text-dark-800 text-xl" data-icon="mdi:handshake-outline"></span>
+                </div>
+                <div>
+                    <span class="text-lg font-bold gold-gradient" data-i18n="logo">الوسيط DZ</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#hero" class="text-sm text-gray-400 hover:text-gold-400 transition-colors" data-i18n="nav_home">الرئيسية</a>
+                <a href="#about" class="text-sm text-gray-400 hover:text-gold-400 transition-colors" data-i18n="nav_about">من نحن</a>
+                <a href="#services" class="text-sm text-gray-400 hover:text-gold-400 transition-colors" data-i18n="nav_services">خدماتنا</a>
+                <a href="#countries" class="text-sm text-gray-400 hover:text-gold-400 transition-colors" data-i18n="nav_countries">دولنا</a>
+                <a href="#contact" class="text-sm text-gray-400 hover:text-gold-400 transition-colors" data-i18n="nav_contact">تواصل معنا</a>
+            </div>
+
+            <!-- Right Side -->
+            <div class="flex items-center gap-3">
+                <!-- Language Switcher -->
+                <div class="hidden sm:flex items-center glass-card rounded-full p-1 gap-0.5">
+                    <button onclick="setLang('ar')" class="lang-btn active text-xs px-3 py-1.5 rounded-full" data-lang="ar">عربي</button>
+                    <button onclick="setLang('fr')" class="lang-btn text-xs px-3 py-1.5 rounded-full text-gray-400" data-lang="fr">FR</button>
+                    <button onclick="setLang('en')" class="lang-btn text-xs px-3 py-1.5 rounded-full text-gray-400" data-lang="en">EN</button>
+                </div>
+
+                <!-- CTA -->
+                <a href="tel:+213549333904" class="hidden md:flex btn-gold rounded-full px-5 py-2.5 text-sm">
+                    <span class="flex items-center gap-2">
+                        <span class="iconify" data-icon="mdi:phone-outline"></span>
+                        <span>0549333904</span>
+                    </span>
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl glass-card">
+                    <span class="iconify text-xl text-gray-300" data-icon="mdi:menu" id="menuIcon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-0 z-[60] bg-dark-800/98 backdrop-blur-xl flex flex-col" id="mobileMenu">
+        <div class="flex items-center justify-between px-4 h-16">
+            <span class="text-lg font-bold gold-gradient" data-i18n="logo">الوسيط DZ</span>
+            <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center rounded-xl glass-card">
+                <span class="iconify text-xl text-gray-300" data-icon="mdi:close"></span>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center flex-1 gap-6">
+            <a onclick="toggleMobileMenu()" href="#hero" class="text-2xl font-light text-gray-300 hover:text-gold-400 transition-colors" data-i18n="nav_home">الرئيسية</a>
+            <a onclick="toggleMobileMenu()" href="#about" class="text-2xl font-light text-gray-300 hover:text-gold-400 transition-colors" data-i18n="nav_about">من نحن</a>
+            <a onclick="toggleMobileMenu()" href="#services" class="text-2xl font-light text-gray-300 hover:text-gold-400 transition-colors" data-i18n="nav_services">خدماتنا</a>
+            <a onclick="toggleMobileMenu()" href="#countries" class="text-2xl font-light text-gray-300 hover:text-gold-400 transition-colors" data-i18n="nav_countries">دولنا</a>
+            <a onclick="toggleMobileMenu()" href="#contact" class="text-2xl font-light text-gray-300 hover:text-gold-400 transition-colors" data-i18n="nav_contact">تواصل معنا</a>
+            <div class="flex items-center gap-2 mt-4">
+                <button onclick="setLang('ar');toggleMobileMenu()" class="text-sm px-4 py-2 rounded-full glass-card text-gray-400 hover:text-gold-400">عربي</button>
+                <button onclick="setLang('fr');toggleMobileMenu()" class="text-sm px-4 py-2 rounded-full glass-card text-gray-400 hover:text-gold-400">FR</button>
+                <button onclick="setLang('en');toggleMobileMenu()" class="text-sm px-4 py-2 rounded-full glass-card text-gray-400 hover:text-gold-400">EN</button>
+            </div>
+            <a href="tel:+213549333904" class="btn-gold rounded-full px-8 py-3 mt-4">
+                <span class="flex items-center gap-2">
+                    <span class="iconify" data-icon="mdi:phone"></span>
+                    <span>0549333904</span>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background Glows -->
+        <div class="hero-bg-glow bg-gold-500 top-1/4 -right-40" style="right:-200px"></div>
+        <div class="hero-bg-glow bg-blue-500 bottom-0 -left-40" style="left:-200px;opacity:0.04"></div>
+
+        <!-- Grid Pattern -->
+        <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(212,168,67,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,67,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1 text-center lg:text-start">
+                    <div class="opacity-0 animate-fade-in-up">
+                        <span class="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 text-xs text-gold-400 mb-6">
+                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                            <span data-i18n="hero_badge">متاح الآن للتواصل</span>
+                        </span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 opacity-0 animate-fade-in-up delay-100">
+                        <span data-i18n="hero_greeting">مرحباً، أنا</span>
+                        <br>
+                        <span class="gold-gradient text-glow" data-i18n="hero_name">برينيس عبد المؤمن</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-400 font-light leading-relaxed mb-4 opacity-0 animate-fade-in-up delay-200" data-i18n="hero_title">
+                        وسيط تجاري ومحاسب مالي معتمد
+                    </p>
+
+                    <p class="text-base text-gray-500 font-light leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0 opacity-0 animate-fade-in-up delay-300" data-i18n="hero_desc">
+                        أقدم حلولاً تجارية متكاملة بفضل شبكة علاقاتي الواسعة في أكثر من 40 دولة حول العالم. استيراد، وساطة تجارية وعقارية بخبرة واحترافية عالية.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start opacity-0 animate-fade-in-up delay-400">
+                        <a href="https://wa.me/213549333904" target="_blank" class="btn-gold rounded-full px-8 py-4 text-sm w-full sm:w-auto text-center">
+                            <span class="flex items-center justify-center gap-2">
+                                <span class="iconify text-lg" data-icon="mdi:whatsapp"></span>
+                                <span data-i18n="hero_cta_wa">تواصل عبر واتساب</span>
+                            </span>
+                        </a>
+                        <a href="#services" class="btn-outline-gold rounded-full px-8 py-4 text-sm w-full sm:w-auto text-center">
+                            <span class="flex items-center justify-center gap-2" data-i18n="hero_cta_services">
+                                اكتشف خدماتنا
+                                <span class="iconify" data-icon="mdi:arrow-left"></span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-3 gap-4 mt-12 opacity-0 animate-fade-in-up delay-500">
+                        <div class="text-center lg:text-start">
+                            <div class="text-2xl sm:text-3xl font-bold gold-gradient stat-number" data-count="40">0+</div>
+                            <div class="text-xs text-gray-500 mt-1" data-i18n="stat_countries">دولة شريكة</div>
+                        </div>
+                        <div class="text-center lg:text-start">
+                            <div class="text-2xl sm:text-3xl font-bold gold-gradient stat-number" data-count="500">0+</div>
+                            <div class="text-xs text-gray-500 mt-1" data-i18n="stat_clients">عميل راضٍ</div>
+                        </div>
+                        <div class="text-center lg:text-start">
+                            <div class="text-2xl sm:text-3xl font-bold gold-gradient stat-number" data-count="10">0+</div>
+                            <div class="text-xs text-gray-500 mt-1" data-i18n="stat_years">سنوات خبرة</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="order-1 lg:order-2 flex justify-center opacity-0 animate-fade-in-up delay-200">
+                    <div class="hero-portrait relative">
+                        <div class="portrait-frame"></div>
+                        <div class="relative w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[480px] rounded-3xl overflow-hidden">
+                            <img src="https://z-cdn-media.chatglm.cn/files/db4b715b-15a1-4328-af9f-5327fb6fba37.jpeg?auth_key=1876854588-a598279bba1348f5872ce72a690c7aad-0-fa52dfd93f5692614047a7d2e1b57ad7"
+                                 alt="برينيس عبد المؤمن"
+                                 class="w-full h-full object-cover object-top">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-transparent"></div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-dark-800/30 to-transparent"></div>
+                        </div>
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-4 -right-4 lg:-right-8 glass-card rounded-2xl px-4 py-3 z-10 animate-bounce" style="animation-duration:3s">
+                            <div class="flex items-center gap-2">
+                                <span class="iconify text-gold-400 text-xl" data-icon="mdi:shield-check-outline"></span>
+                                <div>
+                                    <div class="text-xs font-semibold text-white" data-i18n="badge_verified">معتمد وموثوق</div>
+                                    <div class="text-[10px] text-gray-400" data-i18n="badge_since">منذ 2014</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 animate-fade-in-up delay-700">
+            <span class="text-[10px] text-gray-500 tracking-widest uppercase" data-i18n="scroll_down">اكتشف المزيد</span>
+            <div class="w-5 h-8 rounded-full border border-gray-600 flex justify-center pt-1.5">
+                <div class="w-1 h-2 bg-gold-400 rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinematic Divider -->
+    <div class="cinematic-line mx-auto max-w-4xl"></div>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" class="py-24 lg:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Side -->
+                <div class="reveal-left relative">
+                    <div class="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto">
+                        <img src="https://z-cdn-media.chatglm.cn/files/db4b715b-15a1-4328-af9f-5327fb6fba37.jpeg?auth_key=1876854588-a598279bba1348f5872ce72a690c7aad-0-fa52dfd93f5692614047a7d2e1b57ad7"
+                             alt="برينيس عبد المؤمن"
+                             class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/20 to-transparent"></div>
+                        <!-- Overlay Info -->
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <div class="glass-card rounded-2xl p-5">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl gold-bg flex items-center justify-center">
+                                        <span class="iconify text-dark-800 text-2xl" data-icon="mdi:certificate-outline"></span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-white" data-i18n="about_cert_title">محاسب مالي معتمد</div>
+                                        <div class="text-xs text-gray-400" data-i18n="about_cert_desc">خبرة واسعة في المحاسبة والوساطة التجارية</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 border border-gold-500/20 rounded-2xl -z-10"></div>
+                    <div class="absolute -bottom-4 -left-4 w-32 h-32 border border-gold-500/10 rounded-3xl -z-10"></div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="reveal-right">
+                    <span class="inline-block text-xs text-gold-400 tracking-widest uppercase mb-4" data-i18n="about_label">من نحن</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
+                        <span data-i18n="about_title_1">خبرة عالمية</span>
+                        <br>
+                        <span class="gold-gradient" data-i18n="about_title_2">بوابة تجارتك للعالم</span>
+                    </h2>
+                    <p class="text-gray-400 font-light leading-relaxed mb-6" data-i18n="about_p1">
+                        برينيس عبد المؤمن، وسيط تجاري ومحاسب مالي متخصص في تسهيل العمليات التجارية الدولية. أؤمن بأن التجارة الناجحة تبدأ بالثقة والاحترافية.
+                    </p>
+                    <p class="text-gray-500 font-light leading-relaxed mb-8" data-i18n="about_p2">
+                        بفضل شبكة علاقاتي المتينة الممتدة عبر أكثر من 40 دولة في قارات مختلفة، أقدم لعملائي خدمات استيراد ووساطة بمعايير عالمية وأسعار تنافسية، مع ضمان الشفافية والجودة في كل خطوة.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="glass-card rounded-2xl p-4 text-center">
+                            <span class="iconify text-gold-400 text-2xl mb-2" data-icon="mdi:earth"></span>
+                            <div class="text-sm font-medium text-white" data-i18n="about_feat1">شبكة عالمية</div>
+                            <div class="text-xs text-gray-500" data-i18n="about_feat1_d">40+ دولة</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 text-center">
+                            <span class="iconify text-gold-400 text-2xl mb-2" data-icon="mdi:lock-check-outline"></span>
+                            <div class="text-sm font-medium text-white" data-i18n="about_feat2">صفقات آمنة</div>
+                            <div class="text-xs text-gray-500" data-i18n="about_feat2_d">ضمان كامل</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 text-center">
+                            <span class="iconify text-gold-400 text-2xl mb-2" data-icon="mdi:clock-fast"></span>
+                            <div class="text-sm font-medium text-white" data-i18n="about_feat3">تسليم سريع</div>
+                            <div class="text-xs text-gray-500" data-i18n="about_feat3_d">مواعيد محترمة</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 text-center">
+                            <span class="iconify text-gold-400 text-2xl mb-2" data-icon="mdi:cash-multiple"></span>
+                            <div class="text-sm font-medium text-white" data-i18n="about_feat4">أسعار منافسة</div>
+                            <div class="text-xs text-gray-500" data-i18n="about_feat4_d">بدون وسطاء</div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-gold rounded-full px-8 py-3.5 text-sm inline-flex">
+                        <span class="flex items-center gap-2">
+                            <span data-i18n="about_cta">ابدأ مشروعك الآن</span>
+                            <span class="iconify" data-icon="mdi:arrow-left"></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cinematic-line mx-auto max-w-4xl"></div>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section id="services" class="py-24 lg:py-32 relative">
+        <div class="hero-bg-glow bg-gold-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="opacity:0.04"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="inline-block text-xs text-gold-400 tracking-widest uppercase mb-4" data-i18n="services_label">خدماتنا</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    <span data-i18n="services_title_1">حلول تجارية</span>
+                    <span class="gold-gradient" data-i18n="services_title_2"> شاملة ومتكاملة</span>
+                </h2>
+                <p class="text-gray-500 font-light" data-i18n="services_desc">نقدم مجموعة متكاملة من الخدمات التجارية لتلبية جميع احتياجاتك</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Service 1 -->
+                <div class="service-card glass-card rounded-3xl p-8 lg:p-10 reveal" style="transition-delay:0.1s">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gold-500/10 flex items-center justify-center mb-6 transition-all duration-300">
+                        <span class="iconify text-gold-400 text-3xl transition-colors duration-300" data-icon="mdi:car-import"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white" data-i18n="s1_title">استيراد البضائع والسيارات</h3>
+                    <p class="text-gray-400 font-light leading-relaxed mb-6" data-i18n="s1_desc">نستورد لك البضائع والسيارات من أفضل الأسواق العالمية بأسعار تنافسية مع ضمان الجودة والتسليم في الوقت المحدد. نتعامل مع جميع إجراءات الجمارك والتصدير.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s1_t1">سيارات جديدة ومستعملة</span>
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s1_t2">بضائع متنوعة</span>
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s1_t3">جمارك وتخليص</span>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card glass-card rounded-3xl p-8 lg:p-10 reveal" style="transition-delay:0.2s">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gold-500/10 flex items-center justify-center mb-6 transition-all duration-300">
+                        <span class="iconify text-gold-400 text-3xl transition-colors duration-300" data-icon="mdi:handshake-outline"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white" data-i18n="s2_title">الوساطة التجارية</h3>
+                    <p class="text-gray-400 font-light leading-relaxed mb-6" data-i18n="s2_desc">نربط بين الموردين والمشترين دولياً ونضمن سير الصفقات بسلاسة. خبرتنا في التفاوض تضمن لك أفضل العروض والشروط المثالية لنجاح تجارتك.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s2_t1">ربط الموردين</span>
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s2_t2">تفاوض احترافي</span>
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s2_t3">متابعة الصفقات</span>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card glass-card rounded-3xl p-8 lg:p-10 reveal" style="transition-delay:0.3s">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gold-500/10 flex items-center justify-center mb-6 transition-all duration-300">
+                        <span class="iconify text-gold-400 text-3xl transition-colors duration-300" data-icon="mdi:home-city-outline"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white" data-i18n="s3_title">الوساطة العقارية</h3>
+                    <p class="text-gray-400 font-light leading-relaxed mb-6" data-i18n="s3_desc">نساعدك في العثور على الفرص العقارية المثالية داخل الجزائر وخارجها. سواء كنت تبحث عن سكن، استثمار أو عقار تجاري، نحن نوفر لك الخيارات الأفضل.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s3_t1">عقارات سكنية</span>
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s3_t2">عقارات تجارية</span>
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s3_t3">استثمارات عقارية</span>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card glass-card rounded-3xl p-8 lg:p-10 reveal" style="transition-delay:0.4s">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gold-500/10 flex items-center justify-center mb-6 transition-all duration-300">
+                        <span class="iconify text-gold-400 text-3xl transition-colors duration-300" data-icon="mdi:factory"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white" data-i18n="s4_title">استيراد الماكنات الصناعية</h3>
+                    <p class="text-gray-400 font-light leading-relaxed mb-6" data-i18n="s4_desc">نوفر خطوط الإنتاج والماكنات الصناعية من أفضل المصانع العالمية في الصين وألمانيا وتركيا وغيرها. مع خدمات التركيب والتدريب وضمان ما بعد البيع.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s4_t1">خطوط إنتاج</span>
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s4_t2">ماكنات صناعية</span>
+                        <span class="text-[10px] px-3 py-1 rounded-full bg-gold-500/10 text-gold-400" data-i18n="s4_t3">تركيب وتدريب</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cinematic-line mx-auto max-w-4xl"></div>
+
+    <!-- ==================== COUNTRIES SECTION ==================== -->
+    <section id="countries" class="py-24 lg:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="inline-block text-xs text-gold-400 tracking-widest uppercase mb-4" data-i18n="countries_label">انتشارنا العالمي</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    <span data-i18n="countries_title_1">شبكة علاقات في</span>
+                    <span class="gold-gradient" data-i18n="countries_title_2"> أكثر من 40 دولة</span>
+                </h2>
+                <p class="text-gray-500 font-light" data-i18n="countries_desc">نتواجد في أهم الأسواق العالمية لضمان أفضل الخدمات لعملائنا</p>
+            </div>
+
+            <!-- Countries Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 reveal" style="transition-delay:0.2s">
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇪🇸</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_es">إسبانيا</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇫🇷</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_fr">فرنسا</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇧🇪</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_be">بلجيكا</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇩🇪</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_de">ألمانيا</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇷🇴</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_ro">رومانيا</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇨🇳</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_cn">الصين</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇮🇳</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_in">الهند</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇸🇦</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_sa">الرياض</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇦🇪</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_ae">الإمارات</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇹🇷</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_tr">تركيا</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇺🇸</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_us">أمريكا</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇲🇽</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_mx">المكسيك</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇲🇦</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_ma">المغرب</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default">
+                    <span class="text-3xl mb-2 block">🇱🇾</span>
+                    <div class="text-sm font-medium text-white" data-i18n="c_ly">ليبيا</div>
+                </div>
+                <div class="country-chip glass-card rounded-2xl p-5 text-center cursor-default border-dashed border-gold-500/20">
+                    <span class="text-3xl mb-2 block">🌍</span>
+                    <div class="text-sm font-medium text-gold-400" data-i18n="c_more">والمزيد...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cinematic-line mx-auto max-w-4xl"></div>
+
+    <!-- ==================== PROCESS / HOW IT WORKS ==================== -->
+    <section class="py-24 lg:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="inline-block text-xs text-gold-400 tracking-widest uppercase mb-4" data-i18n="process_label">كيف نعمل</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    <span data-i18n="process_title_1">خطوات بسيطة</span>
+                    <span class="gold-gradient" data-i18n="process_title_2"> لنتائج مضمونة</span>
+                </h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="reveal text-center" style="transition-delay:0.1s">
+                    <div class="w-16 h-16 rounded-full gold-bg flex items-center justify-center mx-auto mb-5 text-dark-800 font-bold text-xl">1</div>
+                    <h4 class="text-lg font-semibold text-white mb-2" data-i18n="p1_title">تواصل معنا</h4>
+                    <p class="text-sm text-gray-500 font-light" data-i18n="p1_desc">اخبرنا عن احتياجاتك عبر الواتساب أو الهاتف</p>
+                </div>
+                <div class="reveal text-center" style="transition-delay:0.2s">
+                    <div class="w-16 h-16 rounded-full gold-bg flex items-center justify-center mx-auto mb-5 text-dark-800 font-bold text-xl">2</div>
+                    <h4 class="text-lg font-semibold text-white mb-2" data-i18n="p2_title">دراسة وتقييم</h4>
+                    <p class="text-sm text-gray-500 font-light" data-i18n="p2_desc">نحلل طلبك ونبحث عن أفضل الخيارات المتاحة</p>
+                </div>
+                <div class="reveal text-center" style="transition-delay:0.3s">
+                    <div class="w-16 h-16 rounded-full gold-bg flex items-center justify-center mx-auto mb-5 text-dark-800 font-bold text-xl">3</div>
+                    <h4 class="text-lg font-semibold text-white mb-2" data-i18n="p3_title">تنفيذ الصفقة</h4>
+                    <p class="text-sm text-gray-500 font-light" data-i18n="p3_desc">نتولى جميع الإجراءات من المفاوضات حتى الشحن</p>
+                </div>
+                <div class="reveal text-center" style="transition-delay:0.4s">
+                    <div class="w-16 h-16 rounded-full gold-bg flex items-center justify-center mx-auto mb-5 text-dark-800 font-bold text-xl">4</div>
+                    <h4 class="text-lg font-semibold text-white mb-2" data-i18n="p4_title">التسليم والمتابعة</h4>
+                    <p class="text-sm text-gray-500 font-light" data-i18n="p4_desc">نضمن وصول طلبك ومتابعة ما بعد البيع</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cinematic-line mx-auto max-w-4xl"></div>
+
+    <!-- ==================== TESTIMONIALS / TRUST ==================== -->
+    <section class="py-24 lg:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-left">
+                    <span class="inline-block text-xs text-gold-400 tracking-widest uppercase mb-4" data-i18n="trust_label">لماذا تثق بنا</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
+                        <span data-i18n="trust_title_1">شريكك التجاري</span>
+                        <br>
+                        <span class="gold-gradient" data-i18n="trust_title_2">الذي يمكنك الاعتماد عليه</span>
+                    </h2>
+                    <p class="text-gray-400 font-light leading-relaxed mb-8" data-i18n="trust_desc">
+                        نحن لا نقدم مجرد خدمة، بل نبني علاقات تجارية طويلة الأمد مبنية على الثقة والشفافية. كل عميل هو شريك في النجاح.
+                    </p>
+
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-green-400" data-icon="mdi:check-bold"></span>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-white mb-1" data-i18n="trust_f1">شفافية كاملة في المعاملات</h5>
+                                <p class="text-xs text-gray-500" data-i18n="trust_f1_d">جميع التفاصيل والتكاليف واضحة من البداية بدون مفاجآت</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-green-400" data-icon="mdi:check-bold"></span>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-white mb-1" data-i18n="trust_f2">دعم متواصل على مدار الساعة</h5>
+                                <p class="text-xs text-gray-500" data-i18n="trust_f2_d">نحن معك في كل خطوة، متاحون للإجابة على استفساراتك</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-green-400" data-icon="mdi:check-bold"></span>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-white mb-1" data-i18n="trust_f3">ضمان الجودة والامتثال</h5>
+                                <p class="text-xs text-gray-500" data-i18n="trust_f3_d">نلتزم بأعلى معايير الجودة والقوانين المحلية والدولية</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-green-400" data-icon="mdi:check-bold"></span>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-white mb-1" data-i18n="trust_f4">أسعار تنافسية بدون تكاليف مخفية</h5>
+                                <p class="text-xs text-gray-500" data-i18n="trust_f4_d">نضمن لك أفضل الأسعار من المصدر مباشرة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Card -->
+                <div class="reveal-right">
+                    <div class="glass-card rounded-3xl p-8 lg:p-10">
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="text-center">
+                                <div class="text-4xl lg:text-5xl font-bold gold-gradient stat-number" data-count="40">0</div>
+                                <div class="text-xs text-gray-400 mt-2" data-i18n="stat_countries2">دولة حول العالم</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl lg:text-5xl font-bold gold-gradient stat-number" data-count="500">0</div>
+                                <div class="text-xs text-gray-400 mt-2" data-i18n="stat_clients2">عميل satisfied</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl lg:text-5xl font-bold gold-gradient stat-number" data-count="1200">0</div>
+                                <div class="text-xs text-gray-400 mt-2" data-i18n="stat_deals">صفقة ناجحة</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl lg:text-5xl font-bold gold-gradient stat-number" data-count="98">0</div>
+                                <div class="text-xs text-gray-400 mt-2" data-i18n="stat_satisfaction">% نسبة الرضا</div>
+                            </div>
+                        </div>
+
+                        <div class="cinematic-line my-8"></div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0">
+                                <img src="https://z-cdn-media.chatglm.cn/files/db4b715b-15a1-4328-af9f-5327fb6fba37.jpeg?auth_key=1876854588-a598279bba1348f5872ce72a690c7aad-0-fa52dfd93f5692614047a7d2e1b57ad7"
+                                     class="w-full h-full object-cover object-top">
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-white" data-i18n="trust_quote_name">برينيس عبد المؤمن</div>
+                                <div class="text-xs text-gray-500" data-i18n="trust_quote_role">المدير العام — الوسيط DZ</div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 font-light mt-4 italic border-r-2 border-gold-500/30 pr-4" data-i18n="trust_quote">
+                            "التجارة الناجحة تبدأ بالثاقة. نحن نلتزم بتقديم أفضل ما لدينا لكل عميل يثق بنا."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cinematic-line mx-auto max-w-4xl"></div>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="py-24 lg:py-32 relative">
+        <div class="hero-bg-glow bg-gold-500 bottom-0 right-0" style="opacity:0.05"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="inline-block text-xs text-gold-400 tracking-widest uppercase mb-4" data-i18n="contact_label">تواصل معنا</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    <span data-i18n="contact_title_1">ابدأ مشروعك</span>
+                    <span class="gold-gradient" data-i18n="contact_title_2"> تواصل معنا اليوم</span>
+                </h2>
+                <p class="text-gray-500 font-light" data-i18n="contact_desc">نحن جاهزون للإجابة على جميع استفساراتك وتقديم الدعم اللازم</p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-8">
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 space-y-4 reveal-left">
+                    <a href="https://wa.me/213549333904" target="_blank" class="flex items-center gap-4 glass-card rounded-2xl p-5 group hover:border-green-500/30 transition-all duration-300">
+                        <div class="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
+                            <span class="iconify text-green-400 text-2xl" data-icon="mdi:whatsapp"></span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white" data-i18n="contact_wa">واتساب</div>
+                            <div class="text-sm text-gray-400 font-inter" dir="ltr">0549333904</div>
+                        </div>
+                        <span class="iconify text-gray-600 group-hover:text-green-400 transition-colors mr-auto" data-icon="mdi:arrow-top-left"></span>
+                    </a>
+
+                    <a href="tel:+213549333904" class="flex items-center gap-4 glass-card rounded-2xl p-5 group hover:border-gold-500/30 transition-all duration-300">
+                        <div class="w-14 h-14 rounded-2xl bg-gold-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500/20 transition-colors">
+                            <span class="iconify text-gold-400 text-2xl" data-icon="mdi:phone-outline"></span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white" data-i18n="contact_phone">هاتف</div>
+                            <div class="text-sm text-gray-400 font-inter" dir="ltr">0549333904</div>
+                        </div>
+                        <span class="iconify text-gray-600 group-hover:text-gold-400 transition-colors mr-auto" data-icon="mdi:arrow-top-left"></span>
+                    </a>
+
+                    <div class="flex items-center gap-4 glass-card rounded-2xl p-5">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-blue-400 text-2xl" data-icon="mdi:map-marker-outline"></span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white" data-i18n="contact_location">الموقع</div>
+                            <div class="text-sm text-gray-400" data-i18n="contact_location_d">الجزائر</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 glass-card rounded-2xl p-5">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-purple-400 text-2xl" data-icon="mdi:clock-outline"></span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white" data-i18n="contact_hours">ساعات العمل</div>
+                            <div class="text-sm text-gray-400" data-i18n="contact_hours_d">السبت - الخميس: 9 ص - 8 م</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 reveal-right">
+                    <form class="glass-card rounded-3xl p-8 lg:p-10" id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="grid sm:grid-cols-2 gap-5 mb-5">
+                            <div>
+                                <label class="text-xs text-gray-400 mb-2 block" data-i18n="form_name">الاسم الكامل</label>
+                                <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-500/50 transition-colors" data-i18n-placeholder="form_name_ph" placeholder="أدخل اسمك">
+                            </div>
+                            <div>
+                                <label class="text-xs text-gray-400 mb-2 block" data-i18n="form_phone">رقم الهاتف</label>
+                                <input type="tel" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-500/50 transition-colors font-inter" dir="ltr" placeholder="0XXX XX XX XX">
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label class="text-xs text-gray-400 mb-2 block" data-i18n="form_service">الخدمة المطلوبة</label>
+                            <select required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-gray-400 focus:outline-none focus:border-gold-500/50 transition-colors appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;utf8,<svg fill=\"%239CA3AF\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>'); background-repeat: no-repeat; background-position: left 12px center; background-size: 20px;">
+                                <option value="" data-i18n="form_service_ph">اختر الخدمة</option>
+                                <option value="import" data-i18n="form_opt1">استيراد بضائع وسيارات</option>
+                                <option value="brokerage" data-i18n="form_opt2">وساطة تجارية</option>
+                                <option value="real estate" data-i18n="form_opt3">وساطة عقارية</option>
+                                <option value="machinery" data-i18n="form_opt4">استيراد ماكنات صناعية</option>
+                                <option value="other" data-i18n="form_opt5">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="text-xs text-gray-400 mb-2 block" data-i18n="form_message">تفاصيل الطلب</label>
+                            <textarea rows="4" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-500/50 transition-colors resize-none" data-i18n-placeholder="form_message_ph" placeholder="اكتب تفاصيل طلبك هنا..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-gold rounded-xl px-8 py-4 text-sm w-full">
+                            <span class="flex items-center justify-center gap-2">
+                                <span class="iconify" data-icon="mdi:send-outline"></span>
+                                <span data-i18n="form_submit">إرسال الطلب</span>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <!-- Logo -->
+                <div class="text-center md:text-start">
+                    <div class="flex items-center gap-3 justify-center md:justify-start mb-3">
+                        <div class="w-9 h-9 rounded-xl gold-bg flex items-center justify-center">
+                            <span class="iconify text-dark-800 text-lg" data-icon="mdi:handshake-outline"></span>
+                        </div>
+                        <span class="text-lg font-bold gold-gradient" data-i18n="logo">الوسيط DZ</span>
+                    </div>
+                    <p class="text-xs text-gray-600" data-i18n="footer_desc">وسيطك التجاري الموثوق — بوابتك للعالم</p>
+                </div>
+
+                <!-- Links -->
+                <div class="flex items-center justify-center gap-6">
+                    <a href="#hero" class="text-xs text-gray-500 hover:text-gold-400 transition-colors" data-i18n="nav_home">الرئيسية</a>
+                    <a href="#services" class="text-xs text-gray-500 hover:text-gold-400 transition-colors" data-i18n="nav_services">خدماتنا</a>
+                    <a href="#countries" class="text-xs text-gray-500 hover:text-gold-400 transition-colors" data-i18n="nav_countries">دولنا</a>
+                    <a href="#contact" class="text-xs text-gray-500 hover:text-gold-400 transition-colors" data-i18n="nav_contact">تواصل</a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-center md:text-end">
+                    <p class="text-xs text-gray-600" data-i18n="footer_copy">© 2025 الوسيط DZ. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/213549333904" target="_blank" class="whatsapp-float">
+        <span class="iconify text-white text-3xl" data-icon="mdi:whatsapp"></span>
+    </a>
+
+    <!-- Toast Notification -->
+    <div class="toast fixed bottom-28 left-1/2 -translate-x-1/2 z-[100] glass-card rounded-2xl px-6 py-4 flex items-center gap-3" id="toast">
+        <span class="iconify text-green-400 text-xl" data-icon="mdi:check-circle-outline"></span>
+        <span class="text-sm text-white" id="toastMessage" data-i18n="toast_sent">تم إرسال طلبك بنجاح!</span>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ===== TRANSLATIONS =====
+        const translations = {
+            ar: {
+                logo: "الوسيط DZ",
+                nav_home: "الرئيسية", nav_about: "من نحن", nav_services: "خدماتنا", nav_countries: "دولنا", nav_contact: "تواصل معنا",
+                hero_badge: "متاح الآن للتواصل",
+                hero_greeting: "مرحباً، أنا",
+                hero_name: "برينيس عبد المؤمن",
+                hero_title: "وسيط تجاري ومحاسب مالي معتمد",
+                hero_desc: "أقدم حلولاً تجارية متكاملة بفضل شبكة علاقاتي الواسعة في أكثر من 40 دولة حول العالم. استيراد، وساطة تجارية وعقارية بخبرة واحترافية عالية.",
+                hero_cta_wa: "تواصل عبر واتساب",
+                hero_cta_services: "اكتشف خدماتنا",
+                stat_countries: "دولة شريكة", stat_clients: "عميل راضٍ", stat_years: "سنوات خبرة",
+                scroll_down: "اكتشف المزيد",
+                badge_verified: "معتمد وموثوق", badge_since: "منذ 2014",
+                about_label: "من نحن",
+                about_title_1: "خبرة عالمية", about_title_2: "بوابة تجارتك للعالم",
+                about_p1: "برينيس عبد المؤمن، وسيط تجاري ومحاسب مالي متخصص في تسهيل العمليات التجارية الدولية. أؤمن بأن التجارة الناجحة تبدأ بالثقة والاحترافية.",
+                about_p2: "بفضل شبكة علاقاتي المتينة الممتدة عبر أكثر من 40 دولة في قارات مختلفة، أقدم لعملائي خدمات استيراد ووساطة بمعايير عالمية وأسعار تنافسية، مع ضمان الشفافية والجودة في كل خطوة.",
+                about_feat1: "شبكة عالمية", about_feat1_d: "40+ دولة",
+                about_feat2: "صفقات آمنة", about_feat2_d: "ضمان كامل",
+                about_feat3: "تسليم سريع", about_feat3_d: "مواعيد محترمة",
+                about_feat4: "أسعار منافسة", about_feat4_d: "بدون وسطاء",
+                about_cert_title: "محاسب مالي معتمد", about_cert_desc: "خبرة واسعة في المحاسبة والوساطة التجارية",
+                about_cta: "ابدأ مشروعك الآن",
+                services_label: "خدماتنا",
+                services_title_1: "حلول تجارية", services_title_2: " شاملة ومتكاملة",
+                services_desc: "نقدم مجموعة متكاملة من الخدمات التجارية لتلبية جميع احتياجاتك",
+                s1_title: "استيراد البضائع والسيارات", s1_desc: "نستورد لك البضائع والسيارات من أفضل الأسواق العالمية بأسعار تنافسية مع ضمان الجودة والتسليم في الوقت المحدد. نتعامل مع جميع إجراءات الجمارك والتصدير.", s1_t1: "سيارات جديدة ومستعملة", s1_t2: "بضائع متنوعة", s1_t3: "جمارك وتخليص",
+                s2_title: "الوساطة التجارية", s2_desc: "نربط بين الموردين والمشترين دولياً ونضمن سير الصفقات بسلاسة. خبرتنا في التفاوض تضمن لك أفضل العروض والشروط المثالية لنجاح تجارتك.", s2_t1: "ربط الموردين", s2_t2: "تفاوض احترافي", s2_t3: "متابعة الصفقات",
+                s3_title: "الوساطة العقارية", s3_desc: "نساعدك في العثور على الفرص العقارية المثالية داخل الجزائر وخارجها. سواء كنت تبحث عن سكن، استثمار أو عقار تجاري، نحن نوفر لك الخيارات الأفضل.", s3_t1: "عقارات سكنية", s3_t2: "عقارات تجارية", s3_t3: "استثمارات عقارية",
+                s4_title: "استيراد الماكنات الصناعية", s4_desc: "نوفر خطوط الإنتاج والماكنات الصناعية من أفضل المصانع العالمية في الصين وألمانيا وتركيا وغيرها. مع خدمات التركيب والتدريب وضمان ما بعد البيع.", s4_t1: "خطوط إنتاج", s4_t2: "ماكنات صناعية", s4_t3: "تركيب وتدريب",
+                countries_label: "انتشارنا العالمي", countries_title_1: "شبكة علاقات في", countries_title_2: " أكثر من 40 دولة", countries_desc: "نتواجد في أهم الأسواق العالمية لضمان أفضل الخدمات لعملائنا",
+                c_es: "إسبانيا", c_fr: "فرنسا", c_be: "بلجيكا", c_de: "ألمانيا", c_ro: "رومانيا", c_cn: "الصين", c_in: "الهند", c_sa: "الرياض", c_ae: "الإمارات", c_tr: "تركيا", c_us: "أمريكا", c_mx: "المكسيك", c_ma: "المغرب", c_ly: "ليبيا", c_more: "والمزيد...",
+                process_label: "كيف نعمل", process_title_1: "خطوات بسيطة", process_title_2: " لنتائج مضمونة",
+                p1_title: "تواصل معنا", p1_desc: "اخبرنا عن احتياجاتك عبر الواتساب أو الهاتف",
+                p2_title: "دراسة وتقييم", p2_desc: "نحلل طلبك ونبحث عن أفضل الخيارات المتاحة",
+                p3_title: "تنفيذ الصفقة", p3_desc: "نتولى جميع الإجراءات من المفاوضات حتى الشحن",
+                p4_title: "التسليم والمتابعة", p4_desc: "نضمن وصول طلبك ومتابعة ما بعد البيع",
+                trust_label: "لماذا تثق بنا", trust_title_1: "شريكك التجاري", trust_title_2: "الذي يمكنك الاعتماد عليه",
+                trust_desc: "نحن لا نقدم مجرد خدمة، بل نبني علاقات تجارية طويلة الأمد مبنية على الثقة والشفافية. كل عميل هو شريك في النجاح.",
+                trust_f1: "شفافية كاملة في المعاملات", trust_f1_d: "جميع التفاصيل والتكاليف واضحة من البداية بدون مفاجآت",
+                trust_f2: "دعم متواصل على مدار الساعة", trust_f2_d: "نحن معك في كل خطوة، متاحون للإجابة على استفساراتك",
+                trust_f3: "ضمان الجودة والامتثال", trust_f3_d: "نلتزم بأعلى معايير الجودة والقوانين المحلية والدولية",
+                trust_f4: "أسعار تنافسية بدون تكاليف مخفية", trust_f4_d: "نضمن لك أفضل الأسعار من المصدر مباشرة",
+                stat_countries2: "دولة حول العالم", stat_clients2: "عميل راضٍ", stat_deals: "صفقة ناجحة", stat_satisfaction: "% نسبة الرضا",
+                trust_quote_name: "برينيس عبد المؤمن", trust_quote_role: "المدير العام — الوسيط DZ",
+                trust_quote: '"التجارة الناجحة تبدأ بالثقة. نحن نلتزم بتقديم أفضل ما لدينا لكل عميل يثق بنا."',
+                contact_label: "تواصل معنا", contact_title_1: "ابدأ مشروعك", contact_title_2: " تواصل معنا اليوم",
+                contact_desc: "نحن جاهزون للإجابة على جميع استفساراتك وتقديم الدعم اللازم",
+                contact_wa: "واتساب", contact_phone: "هاتف", contact_location: "الموقع", contact_location_d: "الجزائر",
+                contact_hours: "ساعات العمل", contact_hours_d: "السبت - الخميس: 9 ص - 8 م",
+                form_name: "الاسم الكامل", form_name_ph: "أدخل اسمك", form_phone: "رقم الهاتف", form_service: "الخدمة المطلوبة", form_service_ph: "اختر الخدمة",
+                form_opt1: "استيراد بضائع وسيارات", form_opt2: "وساطة تجارية", form_opt3: "وساطة عقارية", form_opt4: "استيراد ماكنات صناعية", form_opt5: "أخرى",
+                form_message: "تفاصيل الطلب", form_message_ph: "اكتب تفاصيل طلبك هنا...", form_submit: "إرسال الطلب",
+                toast_sent: "تم إرسال طلبك بنجاح! سنتواصل معك قريباً.",
+                footer_desc: "وسيطك التجاري الموثوق — بوابتك للعالم",
+                footer_copy: "© 2025 الوسيط DZ. جميع الحقوق محفوظة."
+            },
+            fr: {
+                logo: "L'Intermédiaire DZ",
+                nav_home: "Accueil", nav_about: "À propos", nav_services: "Services", nav_countries: "Pays", nav_contact: "Contact",
+                hero_badge: "Disponible maintenant",
+                hero_greeting: "Bonjour, je suis",
+                hero_name: "Bouniss Abdelmoumen",
+                hero_title: "Intermédiaire commercial & Comptable financier agréé",
+                hero_desc: "Je propose des solutions commerciales complètes grâce à mon vaste réseau dans plus de 40 pays. Importation, courtage commercial et immobilier avec un haut niveau de professionnalisme.",
+                hero_cta_wa: "Contactez via WhatsApp",
+                hero_cta_services: "Découvrez nos services",
+                stat_countries: "Pays partenaires", stat_clients: "Clients satisfaits", stat_years: "Ans d'expérience",
+                scroll_down: "Découvrir plus",
+                badge_verified: "Agréé & Fiable", badge_since: "Depuis 2014",
+                about_label: "À propos",
+                about_title_1: "Expertise mondiale", about_title_2: "Votre passerelle vers le commerce",
+                about_p1: "Bouniss Abdelmoumen, intermédiaire commercial et comptable financier spécialisé dans la facilitation des opérations commerciales internationales. Je crois que le commerce réussi commence par la confiance.",
+                about_p2: "Grâce à mon solide réseau s'étendant sur plus de 40 pays, j'offre des services d'importation et de courtage aux normes mondiales avec des prix compétitifs, en garantissant transparence et qualité à chaque étape.",
+                about_feat1: "Réseau mondial", about_feat1_d: "40+ pays",
+                about_feat2: "Deals sécurisés", about_feat2_d: "Garantie totale",
+                about_feat3: "Livraison rapide", about_feat3_d: "Délais respectés",
+                about_feat4: "Prix compétitifs", about_feat4_d: "Sans intermédiaires",
+                about_cert_title: "Comptable financier agréé", about_cert_desc: "Large expérience en comptabilité et courtage",
+                about_cta: "Lancez votre projet",
+                services_label: "Nos services",
+                services_title_1: "Solutions commerciales", services_title_2: " complètes et intégrées",
+                services_desc: "Nous offrons un ensemble complet de services commerciaux pour répondre à tous vos besoins",
+                s1_title: "Importation de marchandises & véhicules", s1_desc: "Nous importons des marchandises et véhicules des meilleurs marchés mondiaux à des prix compétitifs avec garantie de qualité et livraison dans les délais. Nous gérons toutes les procédures douanières.", s1_t1: "Véhicules neufs & occasion", s1_t2: "Marchandises diverses", s1_t3: "Douanes & dédouanement",
+                s2_title: "Courtage commercial", s2_desc: "Nous connectons fournisseurs et acheteurs à l'international et assurons le bon déroulement des transactions. Notre expertise en négociation vous garantit les meilleures offres.", s2_t1: "Mise en relation", s2_t2: "Négociation pro", s2_t3: "Suivi des transactions",
+                s3_title: "Courtage immobilier", s3_desc: "Nous vous aidons à trouver les meilleures opportunités immobilières en Algérie et à l'étranger. Résidence, investissement ou immobilier commercial, nous vous offrons les meilleures options.", s3_t1: "Résidentiel", s3_t2: "Commercial", s3_t3: "Investissements",
+                s4_title: "Importation de machines industrielles", s4_desc: "Nous fournissons des lignes de production et machines industrielles des meilleures usines en Chine, Allemagne, Turquie et ailleurs. Avec installation, formation et service après-vente.", s4_t1: "Lignes de production", s4_t2: "Machines industrielles", s4_t3: "Installation & formation",
+                countries_label: "Notre présence mondiale", countries_title_1: "Réseau dans", countries_title_2: " plus de 40 pays", countries_desc: "Présents dans les marchés les plus importants pour garantir les meilleurs services",
+                c_es: "Espagne", c_fr: "France", c_be: "Belgique", c_de: "Allemagne", c_ro: "Roumanie", c_cn: "Chine", c_in: "Inde", c_sa: "Arabie Saoudite", c_ae: "Émirats", c_tr: "Turquie", c_us: "Amérique", c_mx: "Mexique", c_ma: "Maroc", c_ly: "Libye", c_more: "Et plus...",
+                process_label: "Comment nous travaillons", process_title_1: "Étapes simples", process_title_2: " pour des résultats garantis",
+                p1_title: "Contactez-nous", p1_desc: "Décrivez vos besoins via WhatsApp ou téléphone",
+                p2_title: "Étude & évaluation", p2_desc: "Nous analysons votre demande et recherchons les meilleures options",
+                p3_title: "Exécution", p3_desc: "Nous gérons toutes les procédures de la négociation à l'expédition",
+                p4_title: "Livraison & suivi", p4_desc: "Nous garantissons la réception et le suivi après-vente",
+                trust_label: "Pourquoi nous faire confiance", trust_title_1: "Votre partenaire commercial", trust_title_2: "sur lequel vous pouvez compter",
+                trust_desc: "Nous ne fournissons pas seulement un service, nous construisons des relations commerciales durables basées sur la confiance et la transparence.",
+                trust_f1: "Transparence totale", trust_f1_d: "Tous les détails et coûts sont clairs dès le début",
+                trust_f2: "Support continu 24/7", trust_f2_d: "Nous sommes avec vous à chaque étape",
+                trust_f3: "Garantie qualité & conformité", trust_f3_d: "Nous respectons les normes locales et internationales",
+                trust_f4: "Prix compétitifs sans coûts cachés", trust_f4_d: "Meilleurs prix directement de la source",
+                stat_countries2: "Pays dans le monde", stat_clients2: "Clients satisfaits", stat_deals: "Transactions réussies", stat_satisfaction: "% Taux de satisfaction",
+                trust_quote_name: "Bouniss Abdelmoumen", trust_quote_role: "Directeur Général — L'Intermédiaire DZ",
+                trust_quote: '"Le commerce réussi commence par la confiance. Nous nous engageons à donner le meilleur à chaque client qui nous fait confiance."',
+                contact_label: "Contactez-nous", contact_title_1: "Lancez votre projet", contact_title_2: " Contactez-nous aujourd'hui",
+                contact_desc: "Nous sommes prêts à répondre à toutes vos questions et à vous fournir le support nécessaire",
+                contact_wa: "WhatsApp", contact_phone: "Téléphone", contact_location: "Localisation", contact_location_d: "Algérie",
+                contact_hours: "Heures de travail", contact_hours_d: "Samedi - Jeudi: 9h - 20h",
+                form_name: "Nom complet", form_name_ph: "Entrez votre nom", form_phone: "Téléphone", form_service: "Service demandé", form_service_ph: "Choisir le service",
+                form_opt1: "Import marchandises & véhicules", form_opt2: "Courtage commercial", form_opt3: "Courtage immobilier", form_opt4: "Import machines industrielles", form_opt5: "Autre",
+                form_message: "Détails de la demande", form_message_ph: "Décrivez votre demande ici...", form_submit: "Envoyer la demande",
+                toast_sent: "Votre demande a été envoyée avec succès! Nous vous contacterons bientôt.",
+                footer_desc: "Votre intermédiaire commercial de confiance — Votre passerelle vers le monde",
+                footer_copy: "© 2025 L'Intermédiaire DZ. Tous droits réservés."
+            },
+            en: {
+                logo: "DZ Broker",
+                nav_home: "Home", nav_about: "About", nav_services: "Services", nav_countries: "Countries", nav_contact: "Contact",
+                hero_badge: "Available now",
+                hero_greeting: "Hello, I'm",
+                hero_name: "Bouniss Abdelmoumen",
+                hero_title: "Commercial Broker & Certified Financial Accountant",
+                hero_desc: "I provide comprehensive business solutions thanks to my extensive network in over 40 countries worldwide. Import, commercial and real estate brokerage with the highest level of professionalism.",
+                hero_cta_wa: "Contact via WhatsApp",
+                hero_cta_services: "Discover our services",
+                stat_countries: "Partner countries", stat_clients: "Satisfied clients", stat_years: "Years experience",
+                scroll_down: "Discover more",
+                badge_verified: "Certified & Trusted", badge_since: "Since 2014",
+                about_label: "About Us",
+                about_title_1: "Global Expertise", about_title_2: "Your Gateway to World Trade",
+                about_p1: "Bouniss Abdelmoumen, a commercial broker and financial accountant specialized in facilitating international business operations. I believe that successful trade starts with trust and professionalism.",
+                about_p2: "Thanks to my solid network spanning over 40 countries across different continents, I offer import and brokerage services to global standards with competitive prices, ensuring transparency and quality at every step.",
+                about_feat1: "Global Network", about_feat1_d: "40+ countries",
+                about_feat2: "Secure Deals", about_feat2_d: "Full guarantee",
+                about_feat3: "Fast Delivery", about_feat3_d: "Respected deadlines",
+                about_feat4: "Competitive Prices", about_feat4_d: "No middlemen",
+                about_cert_title: "Certified Financial Accountant", about_cert_desc: "Extensive experience in accounting & brokerage",
+                about_cta: "Start your project now",
+                services_label: "Our Services",
+                services_title_1: "Comprehensive business", services_title_2: " solutions & services",
+                services_desc: "We offer a complete range of business services to meet all your needs",
+                s1_title: "Import of Goods & Vehicles", s1_desc: "We import goods and vehicles from the best global markets at competitive prices with quality guarantee and on-time delivery. We handle all customs and export procedures.", s1_t1: "New & used vehicles", s1_t2: "Various goods", s1_t3: "Customs & clearance",
+                s2_title: "Commercial Brokerage", s2_desc: "We connect suppliers and buyers internationally and ensure smooth transactions. Our negotiation expertise guarantees you the best offers and ideal terms for your trade success.", s2_t1: "Supplier connections", s2_t2: "Professional negotiation", s2_t3: "Deal tracking",
+                s3_title: "Real Estate Brokerage", s3_desc: "We help you find the perfect real estate opportunities in Algeria and abroad. Whether you're looking for residence, investment or commercial property, we provide the best options.", s3_t1: "Residential", s3_t2: "Commercial", s3_t3: "Real estate investments",
+                s4_title: "Industrial Machinery Import", s4_desc: "We provide production lines and industrial machinery from the best global factories in China, Germany, Turkey and more. With installation, training and after-sales warranty.", s4_t1: "Production lines", s4_t2: "Industrial machines", s4_t3: "Installation & training",
+                countries_label: "Our Global Presence", countries_title_1: "Network in", countries_title_2: " over 40 countries", countries_desc: "Present in the most important global markets to ensure the best services for our clients",
+                c_es: "Spain", c_fr: "France", c_be: "Belgium", c_de: "Germany", c_ro: "Romania", c_cn: "China", c_in: "India", c_sa: "Saudi Arabia", c_ae: "UAE", c_tr: "Turkey", c_us: "America", c_mx: "Mexico", c_ma: "Morocco", c_ly: "Libya", c_more: "And more...",
+                process_label: "How We Work", process_title_1: "Simple steps", process_title_2: " for guaranteed results",
+                p1_title: "Contact Us", p1_desc: "Tell us about your needs via WhatsApp or phone",
+                p2_title: "Study & Evaluation", p2_desc: "We analyze your request and search for the best available options",
+                p3_title: "Deal Execution", p3_desc: "We handle all procedures from negotiation to shipping",
+                p4_title: "Delivery & Follow-up", p4_desc: "We ensure delivery and provide after-sales support",
+                trust_label: "Why Trust Us", trust_title_1: "Your business partner", trust_title_2: "you can rely on",
+                trust_desc: "We don't just provide a service, we build long-term business relationships based on trust and transparency. Every client is a partner in success.",
+                trust_f1: "Full transparency in transactions", trust_f1_d: "All details and costs are clear from the start with no surprises",
+                trust_f2: "Continuous 24/7 support", trust_f2_d: "We're with you every step, available to answer your inquiries",
+                trust_f3: "Quality & compliance guarantee", trust_f3_d: "We comply with the highest quality standards and local/international laws",
+                trust_f4: "Competitive prices with no hidden costs", trust_f4_d: "We guarantee the best prices directly from the source",
+                stat_countries2: "Countries worldwide", stat_clients2: "Satisfied clients", stat_deals: "Successful deals", stat_satisfaction: "% Satisfaction rate",
+                trust_quote_name: "Bouniss Abdelmoumen", trust_quote_role: "General Manager — DZ Broker",
+                trust_quote: '"Successful trade starts with trust. We are committed to giving our best to every client who trusts us."',
+                contact_label: "Contact Us", contact_title_1: "Start your project", contact_title_2: " Contact us today",
+                contact_desc: "We're ready to answer all your inquiries and provide the necessary support",
+                contact_wa: "WhatsApp", contact_phone: "Phone", contact_location: "Location", contact_location_d: "Algeria",
+                contact_hours: "Working Hours", contact_hours_d: "Saturday - Thursday: 9 AM - 8 PM",
+                form_name: "Full Name", form_name_ph: "Enter your name", form_phone: "Phone Number", form_service: "Required Service", form_service_ph: "Choose service",
+                form_opt1: "Import goods & vehicles", form_opt2: "Commercial brokerage", form_opt3: "Real estate brokerage", form_opt4: "Import industrial machines", form_opt5: "Other",
+                form_message: "Request Details", form_message_ph: "Write your request details here...", form_submit: "Send Request",
+                toast_sent: "Your request has been sent successfully! We will contact you soon.",
+                footer_desc: "Your trusted commercial broker — Your gateway to the world",
+                footer_copy: "© 2025 DZ Broker. All rights reserved."
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function setLang(lang) {
+            currentLang = lang;
+            const html = document.documentElement;
+            if (lang === 'ar') {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                document.body.style.fontFamily = "'Noto Kufi Arabic', sans-serif";
+            } else {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', lang);
+                document.body.style.fontFamily = "'Inter', sans-serif";
+            }
+
+            // Update active lang button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-gray-400');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                    btn.classList.remove('text-gray-400');
+                }
+            });
+
+            // Translate text
+            const t = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (t[key]) el.textContent = t[key];
+            });
+
+            // Translate placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.dataset['i18nPlaceholder'];
+                if (t[key]) el.placeholder = t[key];
+            });
+
+            // Fix arrow icons direction
+            document.querySelectorAll('[data-i18n="hero_cta_services"] .iconify, [data-i18n="about_cta"] .iconify').forEach(icon => {
+                if (lang === 'ar') {
+                    icon.setAttribute('data-icon', 'mdi:arrow-left');
+                } else {
+                    icon.setAttribute('data-icon', 'mdi:arrow-right');
+                }
+            });
+
+            // Fix contact arrows
+            document.querySelectorAll('.group .iconify[data-icon="mdi:arrow-top-left"]').forEach(icon => {
+                if (lang !== 'ar') {
+                    icon.setAttribute('data-icon', 'mdi:arrow-top-right');
+                } else {
+                    icon.setAttribute('data-icon', 'mdi:arrow-top-left');
+                }
+            });
+
+            // Fix quote border
+            const quote = document.querySelector('[data-i18n="trust_quote"]');
+            if (quote) {
+                if (lang === 'ar') {
+                    quote.style.borderRight = '2px solid rgba(212,168,67,0.3)';
+                    quote.style.borderLeft = 'none';
+                    quote.style.paddingRight = '16px';
+                    quote.style.paddingLeft = '0';
+                } else {
+                    quote.style.borderLeft = '2px solid rgba(212,168,67,0.3)';
+                    quote.style.borderRight = 'none';
+                    quote.style.paddingLeft = '16px';
+                    quote.style.paddingRight = '0';
+                }
+            }
+
+            // Fix select arrow position
+            document.querySelectorAll('select').forEach(sel => {
+                if (lang === 'ar') {
+                    sel.style.backgroundPosition = 'left 12px center';
+                } else {
+                    sel.style.backgroundPosition = 'right 12px center';
+                }
+            });
+        }
+
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        // ===== SCROLL REVEAL =====
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+            reveals.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                const trigger = window.innerHeight * 0.88;
+                if (top < trigger) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        // ===== COUNTER ANIMATION =====
+        function animateCounters() {
+            document.querySelectorAll('[data-count]').forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight * 0.9 && !el.dataset.animated) {
+                    el.dataset.animated = 'true';
+                    const target = parseInt(el.dataset.count);
+                    const duration = 2000;
+                    const start = performance.now();
+                    function update(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.floor(eased * target);
+                        el.textContent = current.toLocaleString() + '+';
+                        if (progress < 1) requestAnimationFrame(update);
+                    }
+                    requestAnimationFrame(update);
+                }
+            });
+        }
+
+        // ===== PARTICLES =====
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                particle.style.animationDelay = (Math.random() * 10) + 's';
+                particle.style.width = (Math.random() * 3 + 1) + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+
+        // ===== NAVBAR SCROLL =====
+        function handleNavScroll() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.borderBottomColor = 'rgba(255,255,255,0.08)';
+                nav.style.background = 'rgba(11,17,32,0.95)';
+            } else {
+                nav.style.borderBottomColor = 'rgba(255,255,255,0.05)';
+                nav.style.background = 'rgba(11,17,32,0.85)';
+            }
+        }
+
+        // ===== FORM SUBMIT =====
+        function handleSubmit(e) {
+            e.preventDefault();
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            e.target.reset();
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // ===== INIT =====
+        window.addEventListener('scroll', () => {
+            revealOnScroll();
+            animateCounters();
+            handleNavScroll();
+        });
+
+        window.addEventListener('load', () => {
+            createParticles();
+            revealOnScroll();
+            setTimeout(animateCounters, 500);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
